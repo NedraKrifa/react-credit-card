@@ -10,8 +10,9 @@ class Form extends Component {
             name="number"
             className="form__input"
             placeholder="Card Number"
-            pattern="[\d| ]{16,22}"
             required
+            onFocus={()=>this.props.setFocus(false)}
+            onChange={(e)=>this.props.onChangeNumber(e)}
           />
           <small>E.g.: 49..., 51..., 36..., 37...</small>
         </div>
@@ -22,6 +23,8 @@ class Form extends Component {
             className="form__input"
             placeholder="Name"
             required
+            onFocus={()=>this.props.setFocus(false)}
+            onChange={(e)=>this.props.onChangeName(e)}
           />
         </div>
         <div className="form__tel">
@@ -31,8 +34,9 @@ class Form extends Component {
               name="expiry"
               className="form__input__tel"
               placeholder="Valid Thru"
-              pattern="\d\d/\d\d"
               required
+              onFocus={()=>this.props.setFocus(false)}
+              onChange={(e)=>this.props.onChangeExpiry(e)}
             />
           </div>
           <div>
@@ -41,8 +45,9 @@ class Form extends Component {
               name="cvc"
               className="form__input__tel"
               placeholder="CVC"
-              pattern="\d{3,4}"
               required
+              onFocus={()=>this.props.setFocus(true)}
+              onChange={(e)=>this.props.onChangeCVC(e)}
             />
           </div>
         </div>
